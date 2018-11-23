@@ -1,0 +1,22 @@
+<div class="w3-container main-container">
+  <div class="w3-row-padding">
+    <div class="w3-col w3-margin-top" style="width: 50%">
+      <div class="w3-card-4 w3-center">
+        <header class="w3-container w3-center w3-blue">
+          <h1>Просмотр и редактирование списка брокеров</h1>
+        </header>
+        <div class="w3-container w3-center" style="height: 70vh; overflow-y: scroll">
+          <div class="brokers" *ngIf="brokers">
+            <app-brokerlistelement *ngFor="let key of objectKeys(brokers)" [broker]="brokers[key]" [broker_id]="key"></app-brokerlistelement>
+          </div>
+        </div>
+        <footer class="w3-container ">
+          <button class="w3-button w3-margin w3-green" (click)="this.handleAddBroker()">Добавить брокера</button>
+        </footer>
+      </div>
+    </div>
+    <div class="w3-col w3-margin-top" style="width: 50%">
+      <app-broker-form></app-broker-form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="w3-card-4 w3-margin-top broker">
+  <header class="w3-container w3-blue">
+    <h3>{{ stock.title }}</h3>
+  </header>
+  <div class="w3-container">
+    <div class="row">
+      <div class="w3-col">
+        <ul class="w3-ul">
+          <li class="w3-li">
+            Закон распределения: <span class="w3-green w3-padding w3-margin-left">{{ stock.distribution }}</span>
+          </li>
+          <li class="w3-li">
+            Количество: <span class="w3-green w3-padding w3-margin-left">{{ stock.quantity }}</span>
+          </li>
+          <li class="w3-li">
+            Макс. значение: <span class="w3-green w3-padding w3-margin-left">{{ stock.max_value }}</span>
+          </li>
+          <li class="w3-li">
+            Начальная стоимость: <span class="w3-green w3-padding w3-margin-left">{{ stock.starting_price }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer class="w3-container w3-blue">
+    <button class="w3-button w3-yellow w3-margin-right" (click)="handleEditClick()">Редактировать</button>
+    <button class="w3-button w3-margin-left w3-red" (click)="handleDeleteClick()">Удалить</button>
+  </footer>
+</div>

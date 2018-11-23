@@ -1,0 +1,28 @@
+<div class="w3-container main-container">
+  <div class="w3-row-padding">
+    <div class="w3-col w3-margin-top" style="width: 50%">
+      <div class="w3-card-4 w3-center">
+        <header class="w3-container w3-center w3-blue">
+          <h1>Просмотр и редактирование параметров биржи</h1>
+        </header>
+        <div class="w3-container w3-center" style="height: 70vh">
+          <form id="paramsForm" name="paramsForm" #f="ngForm" (ngSubmit)="onSubmit(f)"
+                class="w3-form w3-margin-bottom w3-margin-top">
+            <label>Дата и время начала торгов:</label><br>
+            <input name="startDatetime" type="datetime-local" #startDatetime="ngModel" [min]="getCurrentDatetime()"
+                   [(ngModel)]="start_datetime" required><br>
+            <label>Дата и время окончания торгов:</label><br>
+            <input name="endDatetime" type="datetime-local" #endDatetime="ngModel" [min]="start_datetime"
+                   [ngModel]="end_datetime" required>
+            <br>
+            <label>Интервал времени:</label><br>
+            <input name="timeoutField" type="time" #timeoutField="ngModel"
+                   [ngModel]="timeout" required>
+            <br>
+            <input type="submit"  [disabled]="f.invalid" class="w3-button w3-green w3-margin-right w3-margin-top" form="paramsForm" value="Изменить">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

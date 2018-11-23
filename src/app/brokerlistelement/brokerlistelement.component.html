@@ -1,0 +1,19 @@
+<div class="w3-card-4 w3-margin-top broker">
+  <header class="w3-container w3-blue">
+    <h3>{{ broker.name }}</h3>
+  </header>
+  <div class="w3-container">
+    <div class="row">
+      <div class="w3-col" style="width: 50%">
+        <img [src]="broker.image_url" style="max-height: 30vh; width: 15vw" alt="{{broker.name}}">
+      </div>
+      <div class="w3-col" style="width: 50%">
+        <p>Средства: <span class="w3-green w3-padding w3-margin-left">{{broker.cash_reserve}}</span></p>
+      </div>
+    </div>
+  </div>
+  <footer class="w3-container w3-blue">
+    <button class="w3-button w3-yellow w3-margin-right" (click)="handleEditClick()">Редактировать</button>
+    <button class="w3-button w3-margin-left w3-red" (click)="handleDeleteClick()">Удалить</button>
+  </footer>
+</div>

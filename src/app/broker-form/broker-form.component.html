@@ -1,0 +1,30 @@
+<div *ngIf="isShown==true" class="w3-card-4 w3-margin-top broker">
+  <header class="w3-container w3-blue w3-hover-yellow">
+    <h3>Форма брокера</h3>
+  </header>
+  <div class="w3-container">
+    <div class="row">
+      <div class="w3-col">
+        <form id="brokerForm" name="brokerForm" #f="ngForm" (ngSubmit)="onSubmit(f)" class="w3-form w3-margin-bottom">
+          <label>Имя</label>
+          <input name="brokerName" class="w3-input" type="text" [ngModel]="formData.name" required minlength="4"
+                 #brokerName="ngModel" placeholder="Введите имя">
+          <div *ngIf="brokerName.invalid && (brokerName.dirty || brokerName.touched)"
+               class="w3-panel w3-red">Неправильный ввод имени брокера</div>
+          <label>Фото</label>
+          <input name="brokerImage" class="w3-input" type="text" [ngModel]="formData.image_url"
+                 #brokeImage="ngModel" placeholder="Введите изображение">
+          <label>Запас средств</label>
+          <input name="brokerCash" class="w3-input" type="number" [ngModel]="formData.cash_reserve" required
+                 #brokerCash="ngModel" placeholder="Запас средств" [min]="0" pattern="^(?!-1+$)\d+$">
+          <div *ngIf="brokerCash.invalid && (brokerCash.dirty || brokerCash.touched)"
+               class="w3-panel w3-red">Неправильный ввод запаса денежных средств</div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer class="w3-container w3-blue">
+    <input type="submit"  [disabled]="f.invalid" class="w3-button w3-green w3-margin-right" form="brokerForm" value="Сохранить">
+    <button class="w3-button w3-danger w3-margin-right" (click)="closeForm()">Закрыть форму</button>
+  </footer>
+</div>
